@@ -1,0 +1,9 @@
+.empresas-page {
+    padding-top: 10vh;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: solid rgb(85, 85, 85) 1px;
+    transition: 0.2s;
+}

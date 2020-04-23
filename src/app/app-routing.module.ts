@@ -1,29 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginPageComponent } from './components/login-page/login-page.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { EmpresasComponent } from './components/empresas/empresas.component';
 import { LayoutModule } from './layout/layout.module';
 import { LayoutComponent } from './layout/layout.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { GerencialComponent } from './pages/gerencial/gerencial.component';
+import { EmpresaComponent } from './pages/empresa/empresa.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginPageComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', 
     component: LayoutComponent, 
     children: [
-      { path: '', component: HomePageComponent},
-      { path: 'empresas', component: EmpresasComponent },
+      { path: '', component: HomeComponent},
+      { path: 'gerencial', component: GerencialComponent },
+      { path: 'empresas', component: EmpresaComponent },
     ] 
   },
 ];
 
 @NgModule({
   declarations: [
-    LoginPageComponent,
-    HomePageComponent,
-    EmpresasComponent,
+    LoginComponent,
+    HomeComponent,
+    GerencialComponent,
+    EmpresaComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
