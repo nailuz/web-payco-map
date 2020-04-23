@@ -30,22 +30,22 @@ export class EmpresasComponent implements OnInit {
       store.properties.id = i;
     });
 
-    this.map.on('load', function(e) {
-      /* Add the data to your map as a layer */
-      this.map.addLayer({
-        id: 'locations',
-        type: 'symbol',
-        /* Add a GeoJSON source containing place coordinates and information. */
-        source: {
-          type: 'geojson',
-          data: this.stores
-        },
-        layout: {
-          'icon-image': 'restaurant-15',
-          'icon-allow-overlap': true,
-        }
-      });
-    });
+    // this.map.on('load', function(e) {
+    //   /* Add the data to your map as a layer */
+    //   this.map.addLayer({
+    //     id: 'locations',
+    //     type: 'symbol',
+    //     /* Add a GeoJSON source containing place coordinates and information. */
+    //     source: {
+    //       type: 'geojson',
+    //       data: this.stores
+    //     },
+    //     layout: {
+    //       'icon-image': 'restaurant-15',
+    //       'icon-allow-overlap': true,
+    //     }
+    //   });
+    // });
 
 
   }
