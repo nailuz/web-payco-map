@@ -1,32 +1,22 @@
 <div class="container empresas-page">
     <div class="row justif-content-center">
-        <div class="card mb-3 mx-auto" style="max-width: 540px;" [routerLink]="['/empresas']">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="../../../assets/shop-example.jpg" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Empresa A</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
+      <div *ngFor="let loja of lojas" class="card mb-3 mx-auto" style="max-width: 540px;" [routerLink]="['/empresas']">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="../../../assets/shop-example.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{loja.nome}}</h5>
+              <p class="card-text">
+                {{loja.endereco.rua}} <br>
+                {{loja.endereco.cidade}} <br>
+                {{loja.endereco.estado}}
+              </p>
+              <p class="card-text"><small class="text-muted">{{loja.last_update}}</small></p>
             </div>
           </div>
-          <div class="card mb-3 mx-auto" style="max-width: 540px;" [routerLink]="['/empresas']">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="../../../assets/shop-example.jpg" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Empresa B</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 15 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
     </div>
 </div>

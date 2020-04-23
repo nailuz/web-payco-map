@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { GerencialComponent } from './pages/gerencial/gerencial.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { HomeComponent } from './pages/home/home.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     LayoutModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserModule
   ],
   exports: [RouterModule]
 })
