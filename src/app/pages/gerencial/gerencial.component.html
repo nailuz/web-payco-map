@@ -1,6 +1,7 @@
 <div class="container empresas-page">
     <div class="row justif-content-center">
-      <div *ngFor="let loja of lojas" class="card mb-3 mx-auto" style="max-width: 540px;" [routerLink]="['/empresas']">
+      <div *ngFor="let loja of lojas" class="card mb-3 mx-auto" style="max-width: 540px;" 
+        [routerLink]="['/empresas/', loja.id_loja]" [state]="{ data: 'loja'}" >
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="../../../assets/shop-example.jpg" class="card-img" alt="...">

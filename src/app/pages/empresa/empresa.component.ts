@@ -1,18 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import * as Mapboxgl from 'mapbox-gl/';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Router, Route } from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
-  styleUrls: ['./empresa.component.css']
+  styleUrls: ['./empresa.component.css'],
 })
 export class EmpresaComponent implements OnInit {
+  state: Observable<object>;
 
   map: Mapboxgl.Map;
   stores: any;
 
+  loja: Object
 
-  constructor() { }
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.loja = {
+      id_loja: 1, 
+      nome: 'Empresa A', 
+      endereco : {
+        rua: 'Av. Sampaio Vidal nº200',
+        cidade: 'Bauru',
+        estado: 'São Paulo'
+      },
+      last_update: '10 dias atrás',
+      coordenadas: {
+        latitude: -22.2208,
+        longitude: -49.9486
+      },
+    } 
+
+  }
 
   ngOnInit() {
     (Mapboxgl.accessToken as any) = environment.mapbox.accessToken;
@@ -22,6 +44,9 @@ export class EmpresaComponent implements OnInit {
       center: [-96, 37.8],
       zoom: 3
     });
+    //
+    console.log(this.activatedRoute.snapshot.paramMap.get('idLoja'))
+
 
     this.stores = this.getJson();
 
