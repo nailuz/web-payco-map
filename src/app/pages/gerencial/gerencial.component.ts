@@ -22,58 +22,58 @@ export class GerencialComponent implements OnInit {
     this.lojas = [
       {
         id_loja: 1, 
-        nome: 'Empresa A', 
+        nome: 'Confiança Aquarius', 
         endereco : {
-          rua: 'Av. Sampaio Vidal nº200',
-          cidade: 'Bauru',
+          rua: 'R. Dr. Thimo Bruno Belucci, 255',
+          cidade: 'Marília',
           estado: 'São Paulo'
         },
         last_update: '10 dias atrás',
         coordenadas: {
-          latitude: -22.2208,
-          longitude: -49.9486
+          latitude: -22.199090698363079,
+          longitude: -49.960609974915
         },
       },
       {
         id_loja: 2, 
-        nome: 'Empresa B', 
+        nome: 'Confiança Esmeralda', 
         endereco : {
-          rua: 'Av. Joaquim da Fonseca nº1598',
-          cidade: 'bauru',
+          rua: ' R. das Roseiras, 233 ',
+          cidade: 'Marília',
           estado: 'São Paulo'
         },
         last_update: '10 dias atrás',
         coordenadas: {
-          latitude: -22.303074,
-          longitude: -49.065628
+          latitude: -22.226806200924756,
+          longitude: -49.931175008782816
         },
       },
       {
         id_loja: 3, 
-        nome: 'Empresa C', 
+        nome: 'Restaurante Tokyo', 
         endereco : {
-          rua: 'Av. Teodoro Quintana nº2900',
-          cidade: 'Gália',
+          rua: 'Av. Rio Branco, 733',
+          cidade: 'Marília',
           estado: 'São Paulo'
         },
         last_update: '11 dias atrás',
         coordenadas: {
-          latitude:  -22.2914,
-          longitude: -49.5559
+          latitude:  -22.222795204323333,
+          longitude: -49.9548132695982
         },
       },
       {
         id_loja: 4, 
-        nome: 'Empresa D', 
+        nome: 'Via Bosque', 
         endereco : {
-          rua: 'Av. Via Expressa nº180',
-          cidade: 'Pompéia',
+          rua: 'R. Amadeu Amarau, 8',
+          cidade: 'Marília',
           estado: 'São Paulo'
         },
         last_update: '5 dias atrás',
         coordenadas: {
-          latitude: -22.1065,
-          longitude: -50.1747
+          latitude: -22.20859491294381,
+          longitude: -49.93549672551123
         },
       },
     ]
