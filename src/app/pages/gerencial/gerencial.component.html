@@ -1,23 +1,32 @@
 <div class="container empresas-page">
-    <div class="row justif-content-center">
-      <div *ngFor="let loja of lojas" class="card mb-3 mx-auto" style="max-width: 540px;" 
-        [routerLink]="['/empresas/', loja.id_loja]" [state]="{ data: 'loja'}" >
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="../../../assets/shop-example.jpg" class="card-img" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{loja.nome}}</h5>
-              <p class="card-text">
-                {{loja.endereco.rua}} <br>
-                {{loja.endereco.cidade}} <br>
-                {{loja.endereco.estado}}
-              </p>
-              <p class="card-text"><small class="text-muted">{{loja.last_update}}</small></p>
-            </div>
+  <div class="row justif-content-center">
+    <div *ngFor="let loja of lojas" class="card mb-3 mx-auto" style="max-width: 540px;"
+      [routerLink]="['/empresas/', loja.id_loja]" [state]="{ data: 'loja'}">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="../../../assets/shop-example.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{loja.nome}}</h5>
+            <p class="card-text">
+              {{loja.endereco.rua}} <br>
+              {{loja.endereco.cidade}} <br>
+              {{loja.endereco.estado}}
+            </p>
+            <p class="card-text"><small class="text-muted">{{loja.last_update}}</small></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div id="adicionar-nova-loja">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-lg btn btn-outline-primary" (click)="novaLoja()">Nova loja</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

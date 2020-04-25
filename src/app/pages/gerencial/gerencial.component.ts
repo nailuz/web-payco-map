@@ -15,6 +15,22 @@ export class GerencialComponent implements OnInit {
     console.log(this.lojas)
   }
 
+  novaLoja(){
+    this.lojas.push({
+      nome: 'Nova Loja', 
+      endereco : {
+        rua: 'Rua',
+        cidade: 'Cidade',
+        estado: 'Estado'
+      },
+      last_update: '1 minuto atrás',
+      coordenadas: {
+        latitude: -22.199090698363079,
+        longitude: -49.960609974915
+      },
+    })
+  }
+
   getEmpresas() {
     const id_empresa = 1;
 
