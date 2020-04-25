@@ -8,6 +8,7 @@ import { GerencialComponent } from './pages/gerencial/gerencial.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CadastroUsuarioComponent } from './pages/cadastro-usuario/cadastro-usuario.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent},
       { path: 'gerencial', component: GerencialComponent },
       { path: 'empresas/:idLoja', component: EmpresaComponent },
+      { path: 'cadastro', component: CadastroUsuarioComponent }
     ] 
   },
 ];
@@ -28,6 +30,7 @@ const routes: Routes = [
     HomeComponent,
     GerencialComponent,
     EmpresaComponent,
+    CadastroUsuarioComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
