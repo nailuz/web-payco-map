@@ -1,0 +1,8 @@
+#pagina-cadastro-usuario {
+    width: 60vw;
+    border: rgb(73, 73, 73) solid 2px;
+    padding: 0px 5%;
+    border-radius: 10px;
+    margin: 10vh auto;
+    box-shadow: 5px 5px 20px rgb(182, 182, 182);
+}

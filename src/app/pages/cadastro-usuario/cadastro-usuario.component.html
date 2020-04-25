@@ -1,1 +1,36 @@
-<p>cadastro-usuario works!</p>
+<div id="pagina-cadastro-usuario">
+    <h2 class="text-center my-5">Registgrar novo usuário</h2>
+    <form [formGroup]="formCadastro" (ngSubmit)="registrar()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" 
+                formControlName="email"       
+                placeholder="Email para acesso na plataforma">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" 
+                formControlName="senha"       
+                placeholder="Senha de acesso">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" 
+            formControlName="nome"       
+            placeholder="Nome completo">
+        </div>
+        <div class="form-group">
+            <label for="lojas">Quantidade de lojas</label>
+            <select class="form-control" id="lojas" formControlName="qtdeLojas">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block my-5">Cadastrar</button>
+    </form>
+</div>
