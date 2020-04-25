@@ -2,42 +2,41 @@
     <div id="map"></div>
     <div class="card m-auto border-dark">
         <div class="card-body">
-            <form>
+            <form [formGroup]="formLoja">
                 <div class="form-group">
-                  <label class="mb-1" for="exampleInputEmail1">Nome da empresa</label>
-                  <input type="email" class="form-control" aria-describedby="emailHelp">
+                    <label class="mb-1" for="nome">Nome da empresa</label>
+                    <input formControlName="nome" type="email" class="form-control" id="nome" aria-describedby="emailHelp">
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="mb-1" for="cashback">Cashback</label>
+                    <input formControlName="cashback" type="email" class="form-control" id="cashback" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col">
+                        <label class="mb-1" for="tipo">Tipo de serviço</label>
+                        <input formControlName="tipoServico" type="email" class="form-control" id="tipo" aria-describedby="emailHelp">
+                    </div>
+                </div>
+                <div class="form-row mt-3">
+                    <div class="form-group col-md-6">
+                      <label for="cidade">Cidade</label>
+                      <input formControlName="cidade" type="text" class="form-control" id="cidade">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="estado">Estado</label>
+                      <input formControlName="estado" type="text" class="form-control" id="estado">
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="mb-1" for="endereco">Endereço</label>
+                    <input formControlName="endereco" type="email" class="form-control" id="endereco" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação A</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
+                    <label for="descricao">Descrição</label>
+                    <textarea formControlName="descricao" class="form-control" id="descricao" rows="3"></textarea>
                 </div>
-                <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação B</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação C</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação D</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação E</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação F</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label class="mb-1" for="exampleInputEmail1">Informação G</label>
-                    <input type="email" class="form-control" aria-describedby="emailHelp">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </form>
         </div>
-      </div>
+    </div>
 </div>
-

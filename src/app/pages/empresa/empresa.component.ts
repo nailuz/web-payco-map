@@ -4,6 +4,7 @@ import * as Mapboxgl from 'mapbox-gl/';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, Route } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
@@ -11,34 +12,31 @@ import { Location } from '@angular/common';
 })
 export class EmpresaComponent implements OnInit {
   state: Observable<object>;
+  formLoja: FormGroup
 
   map: Mapboxgl.Map;
   stores: any;
   marker: Mapboxgl.Marker
-  loja: any
 
-  get latitude() { return this.loja.coordenadas.latitude }
-  get longitude() { return this.loja.coordenadas.longitude }
+  get latitude() { return this.formLoja.get('latitude').value }
+  get longitude() { return this.formLoja.get('longitude').value }
 
   constructor(private activatedRoute: ActivatedRoute) {
-    this.loja = {
-      id_loja: 1, 
-      nome: 'Empresa A', 
-      endereco : {
-        rua: 'Av. Sampaio Vidal nº200',
-        cidade: 'Bauru',
-        estado: 'São Paulo'
-      },
-      last_update: '10 dias atrás',
-      coordenadas: {
-        latitude: -22.2208,
-        longitude: -49.9486
-      }
-    } 
-
+    this.formLoja = new FormGroup({
+      nome: new FormControl('', [Validators.required]),
+      cashback: new FormControl('', [Validators.required]),
+      tipoServico: new FormControl('', [Validators.required]),
+      cidade: new FormControl('', [Validators.required]),
+      estado: new FormControl('', [Validators.required]),
+      endereco: new FormControl('', [Validators.required]),
+      descricao: new FormControl(''),
+      latitude: new FormControl(null),
+      longitude: new FormControl(null),
+    });
   }
 
   ngOnInit() {
+    this.getDadosLoja();
     (Mapboxgl as any).accessToken = environment.mapbox.accessToken;
     this.map = new Mapboxgl.Map({
       container: 'map',
@@ -49,6 +47,35 @@ export class EmpresaComponent implements OnInit {
 
     this.criarMarcador(this.longitude, this.latitude)
 
+  }
+
+  getDadosLoja() {
+    const loja = {
+      primeiroAcesso: true,
+      nome: 'Exemplo', 
+      cashback: 10,
+      tipoServico: 'Exemplo',
+      descricao: 'Um texto longo',
+      endereco : {
+        rua: 'Av. Sampaio Vidal nº200',
+        cidade: 'Bauru',
+        estado: 'São Paulo'
+      },
+      last_update: '10 dias atrás',
+      coordenadas: {
+        latitude: -22.2208,
+        longitude: -49.9486
+      },
+    }
+    this.formLoja.get('nome').setValue(loja.nome)
+    this.formLoja.get('cashback').setValue(loja.cashback || 0)
+    this.formLoja.get('tipoServico').setValue(loja.tipoServico)
+    this.formLoja.get('cidade').setValue(loja.endereco.cidade)
+    this.formLoja.get('estado').setValue(loja.endereco.estado)
+    this.formLoja.get('endereco').setValue(loja.endereco.rua)
+    this.formLoja.get('descricao').setValue(loja.descricao)
+    this.formLoja.get('latitude').setValue(loja.coordenadas.latitude)
+    this.formLoja.get('longitude').setValue(loja.coordenadas.longitude)
   }
 
   criarMarcador(lgn: number, lat: number) {
