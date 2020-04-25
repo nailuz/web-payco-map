@@ -1,0 +1,21 @@
+#mapa-home {
+    height: 80vh;
+}
+
+.marker {
+    background-image: url('../../../assets/marker-example.png');
+    background-size: 50px 50px;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}

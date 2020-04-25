@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.marker {
+    background-image: url('./assets/marker-example.png');
+    background-size: 50px 50px;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    cursor: pointer;
+}

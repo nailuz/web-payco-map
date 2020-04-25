@@ -21,6 +21,16 @@ export class HomeComponent implements OnInit {
       center: [-49.9486, -22.2208],
       zoom: 12.5
     })
+
+    const geojson = this.getExampleGEOJson()
+    geojson.features.forEach(loja => {
+      const element = document.createElement('div');
+      element.className = 'marker';
+      new Mapboxgl.Marker(element)
+        .setLngLat([loja.geometry.coordinates[0], loja.geometry.coordinates[1]])
+        .addTo(this.mapa)
+    })
+
   }
 
 
@@ -41,7 +51,11 @@ export class HomeComponent implements OnInit {
             cidade: 'Marília',
             estado: 'São Paulo'
           },
-          last_update: '10 dias atrás'
+          last_update: '10 dias atrás',
+          coordenadas: {
+            latitude: -22.199090698363079,
+            longitude: -49.960609974915
+          }
         }
       },
       {
@@ -58,7 +72,11 @@ export class HomeComponent implements OnInit {
             cidade: 'Marília',
             estado: 'São Paulo'
           },
-          last_update: '10 dias atrás'
+          last_update: '10 dias atrás',
+          coordenadas: {
+            latitude: -22.226806200924756,
+            longitude: -49.931175008782816
+          }
         }
       },
       {
@@ -75,7 +93,11 @@ export class HomeComponent implements OnInit {
             cidade: 'Marília',
             estado: 'São Paulo'
           },
-          last_update: '11 dias atrás'
+          last_update: '11 dias atrás',
+          coordenadas: {
+            latitude:  -22.222795204323333,
+            longitude: -49.9548132695982
+          }
         }
       },
       {
@@ -92,7 +114,11 @@ export class HomeComponent implements OnInit {
             cidade: 'Marília',
             estado: 'São Paulo'
           },
-          last_update: '5 dias atrás'
+          last_update: '5 dias atrás',
+          coordenadas: {
+            latitude: -22.20859491294381,
+            longitude: -49.93549672551123
+          }
         }
       }]
     };
