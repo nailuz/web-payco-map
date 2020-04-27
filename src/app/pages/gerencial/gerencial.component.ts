@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gerencial',
@@ -8,16 +9,24 @@ import { Component, OnInit } from '@angular/core';
 export class GerencialComponent implements OnInit {
   lojas = []
 
-  constructor() { }
+  constructor(
+    public router: Router,
+  ) { }
 
   ngOnInit() {
     this.getEmpresas()
-    console.log(this.lojas)
+  }
+
+  irParaLoja(loja: object): void {
+    this.router.navigateByUrl('/empresas', { state: loja })
   }
 
   novaLoja(){
     this.lojas.push({
       nome: 'Nova Loja', 
+      cashback: 0,
+      tipoServico: 'Exemplo',
+      descricao: 'Um texto longo',
       endereco : {
         rua: 'Rua',
         cidade: 'Cidade',
@@ -25,8 +34,8 @@ export class GerencialComponent implements OnInit {
       },
       last_update: '1 minuto atrás',
       coordenadas: {
-        latitude: -22.199090698363079,
-        longitude: -49.960609974915
+        latitude: -22.2208,
+        longitude: -49.9486
       },
     })
   }
@@ -39,6 +48,9 @@ export class GerencialComponent implements OnInit {
       {
         id_loja: 1, 
         nome: 'Confiança Aquarius', 
+        cashback: 10,
+        tipoServico: 'Supermercado',
+        descricao: 'Rede de supermercados confiança, unidade aquarius.',
         endereco : {
           rua: 'R. Dr. Thimo Bruno Belucci, 255',
           cidade: 'Marília',
@@ -53,6 +65,9 @@ export class GerencialComponent implements OnInit {
       {
         id_loja: 2, 
         nome: 'Confiança Esmeralda', 
+        cashback: 10,
+        tipoServico: 'Supermercado',
+        descricao: 'Rede de supermercados confiança, unidade esmeralda.',
         endereco : {
           rua: ' R. das Roseiras, 233 ',
           cidade: 'Marília',
@@ -67,6 +82,9 @@ export class GerencialComponent implements OnInit {
       {
         id_loja: 3, 
         nome: 'Restaurante Tokyo', 
+        cashback: 10,
+        tipoServico: 'Restaurante',
+        descricao: 'Comida japonesa.',
         endereco : {
           rua: 'Av. Rio Branco, 733',
           cidade: 'Marília',
@@ -81,6 +99,9 @@ export class GerencialComponent implements OnInit {
       {
         id_loja: 4, 
         nome: 'Via Bosque', 
+        cashback: 10,
+        tipoServico: 'Lanchonete',
+        descricao: 'Lanchonete de ambiente familiar',
         endereco : {
           rua: 'R. Amadeu Amarau, 8',
           cidade: 'Marília',

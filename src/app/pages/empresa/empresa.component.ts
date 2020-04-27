@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import * as Mapboxgl from 'mapbox-gl/';
 import { Observable } from 'rxjs';
-import { ActivatedRoute, Router, Route } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
@@ -21,7 +21,7 @@ export class EmpresaComponent implements OnInit {
   get latitude() { return this.formLoja.get('latitude').value }
   get longitude() { return this.formLoja.get('longitude').value }
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router) {
     this.formLoja = new FormGroup({
       nome: new FormControl('', [Validators.required]),
       cashback: new FormControl('', [Validators.required]),
@@ -49,24 +49,28 @@ export class EmpresaComponent implements OnInit {
 
   }
 
-  getDadosLoja() {
-    const loja = {
-      primeiroAcesso: true,
-      nome: 'Exemplo', 
-      cashback: 10,
+  exemplarNovaLoja(): object {
+    return {
+      nome: 'Nova Loja', 
+      cashback: 0,
       tipoServico: 'Exemplo',
       descricao: 'Um texto longo',
       endereco : {
-        rua: 'Av. Sampaio Vidal nº200',
-        cidade: 'Bauru',
-        estado: 'São Paulo'
+        rua: 'Rua',
+        cidade: 'Cidade',
+        estado: 'Estado'
       },
-      last_update: '10 dias atrás',
+      last_update: '1 minuto atrás',
       coordenadas: {
         latitude: -22.2208,
         longitude: -49.9486
       },
     }
+  }
+
+  getDadosLoja() {
+
+    const loja = history.state.id_loja ? history.state : this.exemplarNovaLoja()
     this.formLoja.get('nome').setValue(loja.nome)
     this.formLoja.get('cashback').setValue(loja.cashback || 0)
     this.formLoja.get('tipoServico').setValue(loja.tipoServico)

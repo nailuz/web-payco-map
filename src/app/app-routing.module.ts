@@ -18,7 +18,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent},
       { path: 'gerencial', component: GerencialComponent },
-      { path: 'empresas/:idLoja', component: EmpresaComponent },
+      { path: 'empresas', component: EmpresaComponent },
       { path: 'cadastro', component: CadastroUsuarioComponent }
     ] 
   },
